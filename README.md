@@ -4,7 +4,7 @@ This is a auto push repository for Baekjoon Online Judge created with [BaekjoonH
 ##### starts_at = 2023.10.28 ~
 
 ### Skill
-- RDBMS = MYSQL / PSQL
-- BACKEND = Node.js / Kotlin
+- RDBMS = MYSQL, PSQL
+- BACKEND = Node.js, Kotlin
 - SERVER = AWS (Solution Architect Associate)
-- ETC = Python
+- ETC = Python, Git
