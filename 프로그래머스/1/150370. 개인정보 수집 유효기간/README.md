@@ -18,6 +18,27 @@
 
 2023년 11월 2일 2:16:2
 
+## 엄청난 문제 풀이 발견..
+문제 풀이 관건
+1. 날짜 비교를 days로 한다.
+2. 접근을 split으로 하는게 아니라 문자열 index로 바로 접근한다.
+
+```
+def to_days(date):
+    year, month, day = map(int, date.split("."))
+    return year * 28 * 12 + month * 28 + day
+
+def solution(today, terms, privacies):
+    months = {v[0]: int(v[2:]) * 28 for v in terms}
+    today = to_days(today)
+    expire = [
+        i + 1 for i, privacy in enumerate(privacies)
+        if to_days(privacy[:-2]) + months[privacy[-1]] <= today
+    ]
+    return expire
+
+```
+
 ### 문제 설명
 
 <p>고객의 약관 동의를 얻어서 수집된 1~<code>n</code>번으로 분류되는 개인정보 <code>n</code>개가 있습니다. 약관 종류는 여러 가지 있으며 각 약관마다 개인정보 보관 유효기간이 정해져 있습니다. 당신은 각 개인정보가 어떤 약관으로 수집됐는지 알고 있습니다. 수집된 개인정보는 유효기간 전까지만 보관 가능하며, 유효기간이 지났다면 반드시 파기해야 합니다.</p>
@@ -217,3 +238,4 @@
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
