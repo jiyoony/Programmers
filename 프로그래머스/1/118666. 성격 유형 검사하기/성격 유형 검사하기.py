@@ -13,5 +13,4 @@ def solution(survey, choices):
             answer += a
         else:
             answer += b
-    print(point)
     return answer
