@@ -1,11 +1,8 @@
-import re 
 def solution(s, skip, index):
-    alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    newAlphabet = re.sub('['+skip+']','',alphabet)
     answer = ''
-    for i in s:
-        next_index = newAlphabet.find(i)+index
-        if next_index >= len(newAlphabet):
-            next_index = next_index % len(newAlphabet) - len(newAlphabet)
-        answer += newAlphabet[next_index]
+    alphabet = list('abcdefghijklmnopqrstuvwxyz')
+    skip_list = list(skip)
+    target_alphabet = [x for x in alphabet if x not in skip_list]
+    for a in s:
+        answer += target_alphabet[(target_alphabet.index(a)+index)%len(target_alphabet)]
     return answer
