@@ -1,10 +1,10 @@
 # [level 1] 개인정보 수집 유효기간 - 150370 
 
-[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150370#) 
+[문제 링크](https://school.programmers.co.kr/learn/courses/30/lessons/150370) 
 
 ### 성능 요약
 
-메모리: 10.4 MB, 시간: 0.29 ms
+메모리: 10.3 MB, 시간: 0.26 ms
 
 ### 구분
 
@@ -16,28 +16,7 @@
 
 ### 제출 일자
 
-2023년 11월 2일 2:16:2
-
-## 엄청난 문제 풀이 발견..
-문제 풀이 관건
-1. 날짜 비교를 days로 한다.
-2. 접근을 split으로 하는게 아니라 문자열 index로 바로 접근한다.
-
-```
-def to_days(date):
-    year, month, day = map(int, date.split("."))
-    return year * 28 * 12 + month * 28 + day
-
-def solution(today, terms, privacies):
-    months = {v[0]: int(v[2:]) * 28 for v in terms}
-    today = to_days(today)
-    expire = [
-        i + 1 for i, privacy in enumerate(privacies)
-        if to_days(privacy[:-2]) + months[privacy[-1]] <= today
-    ]
-    return expire
-
-```
+2024년 10월 23일 10:20:18
 
 ### 문제 설명
 
@@ -238,4 +217,3 @@ def solution(today, terms, privacies):
 
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
-
