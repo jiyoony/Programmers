@@ -1,23 +1,19 @@
 def solution(s):
     answer = 0
-    first_letter = ''
-    while(len(s) > 1):
-        first_letter = s[0]
-        diff = 0
-        same = 1
-        for i in range(1,len(s)):
-            if first_letter == s[i]:
-                same += 1
-            else: 
-                diff += 1
-            if same == diff:
+    while s:
+        x = s[0]
+        x_cnt, non_cnt = 0, 0
+        for j in range(len(s)):
+            if s[j] == x:
+                x_cnt += 1
+            else:
+                non_cnt += 1
+            if x_cnt == non_cnt:
                 answer += 1
-                s=s[same+diff:]
+                s = s[j+1:]
                 break
-            if i == len(s)-1:
-                answer += 1
-                s=''
-                break
-    
-    answer = answer + 1 if (len(s) == 1) else answer
+        if x_cnt != non_cnt:
+            answer += 1
+            break
+        
     return answer

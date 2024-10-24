@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 10.2 MB, 시간: 2.26 ms
+메모리: 10.2 MB, 시간: 7.07 ms
 
 ### 구분
 
@@ -14,43 +14,9 @@
 
 정확성: 100.0<br/>합계: 100.0 / 100.0
 
-## Queue를 사용한 더 좋은 코드를 발견했당
-코드 설명 :
-        문자열을 deque로 만들고 이중 while문을 돌면서 앞에서 부터 하나씩 빼면서 same과 diff count를 해간다.
-        same.count = diff.count 일 경우 answer에 1을 더해주고 queue가 비면 while문을 종료하여 개수 비교를 종료한다.
-        마지막에 개수가 다르면 냠은 문자열이 있었다는 것이기 때문에 answer 에 1을 더해준다.
-
-```
-from collections import deque
-
-def solution(s):
-
-    ans = 0
-
-    q = deque(s)    
-    while q:
-        a, b = 1, 0
-        x = q.popleft()    
-
-        while q:
-            n = q.popleft()
-            if n == x:
-                a += 1
-            else:
-                b += 1
-
-            if a == b:
-                ans += 1
-                break
-    if a != b:
-        ans += 1
-
-    return ans
-```
-
 ### 제출 일자
 
-2023년 11월 3일 22:32:33
+2024년 10월 24일 13:07:39
 
 ### 문제 설명
 
