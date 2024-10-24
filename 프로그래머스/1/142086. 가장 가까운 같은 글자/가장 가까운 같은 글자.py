@@ -1,6 +1,5 @@
-from collections import defaultdict
 def solution(s):
-    before = defaultdict(int)
+    before = dict()
     answer = []
     
     for i,k in enumerate(list(s)):
