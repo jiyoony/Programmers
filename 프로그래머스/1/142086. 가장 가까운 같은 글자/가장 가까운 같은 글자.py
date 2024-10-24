@@ -1,7 +1,13 @@
+from collections import defaultdict
 def solution(s):
+    before = defaultdict(int)
     answer = []
-    for i in range(len(s)):
-        s_reverse = s[0:i][::-1]
-        answer.append((s_reverse.find(s[i])+1 if s[i] in s_reverse else -1))
-        
+    
+    for i,k in enumerate(list(s)):
+        if k in before.keys():
+            answer.append(i-before[k])
+        else:
+            answer.append(-1)
+        before[k] = i
+    
     return answer
