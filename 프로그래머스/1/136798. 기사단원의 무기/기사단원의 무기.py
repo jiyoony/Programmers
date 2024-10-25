@@ -1,11 +1,22 @@
 def solution(number, limit, power):
-    divisor = []
+    answer = 0
     for i in range(1,number+1):
-        div_count = 0
-        for j in range(1,int(i**0.5)+1):
-            if i%j == 0:
-                div_count += 2
-        if i ** 0.5 % 1 == 0:
-            div_count -= 1
-        divisor.append(div_count if div_count <= limit else power)
-    return sum(divisor)
+        divisors = divisor(i)
+        if divisors > limit:
+            answer += power
+        else: 
+            answer += divisors
+    return answer
+
+def divisor(num):
+    divisors = []
+    for i in range(1,int(num**0.5)+1):
+        if num % i == 0:
+            if i == num//i:
+                divisors.append(i)
+            else:
+                divisors.extend([i,num//i])
+    return len(divisors)
+            
+        
+    
