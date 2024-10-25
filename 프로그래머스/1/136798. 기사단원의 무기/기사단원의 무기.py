@@ -12,11 +12,6 @@ def divisor(num):
     divisors = []
     for i in range(1,int(num**0.5)+1):
         if num % i == 0:
-            if i == num//i:
-                divisors.append(i)
-            else:
-                divisors.extend([i,num//i])
-    return len(divisors)
-            
-        
+            divisors.extend([i,num//i])
+    return len(set(divisors))
     
